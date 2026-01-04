@@ -280,6 +280,8 @@ async def swing(
 )
 async def propose_channel(ctx, ticker: str, pitch: str):
     user = ctx.author
+    # Log the attempt to use /propose_channel
+    logger.info(f"/propose_channel attempt by user: {user} (ID: {user.id}), ticker: {ticker}, pitch: {pitch}")
     chars = len(pitch)
     if chars > 500:
         error_msg = f"Your pitch was too long. The limit is 500 characters and you entered {chars} characters"
